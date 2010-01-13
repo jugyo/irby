@@ -24,7 +24,8 @@ Usage
 Note
 ------------
  
-Inspired by http://d.hatena.ne.jp/ursm/20090625/1245951503
+Inspired by [http://d.hatena.ne.jp/ursm/20090625/1245951503](http://d.hatena.ne.jp/ursm/20090625/1245951503)
+
 
 Copyright
 ------------
