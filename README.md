@@ -1,7 +1,8 @@
 IRBy
 ======
 
-The IRBy allows you to start irb super quickly.
+The IRBy defines Object#irb.
+It allows you to start irb super quickly.
 
 Installation
 ------------
@@ -11,15 +12,17 @@ Installation
 Usage
 ------------
 
+Call irb on current context.
+
     require 'irby'
 
-    class Foo
-      def bar
-        irb
-      end
-    end
+    irb # start irb session
 
-    Foo.new.bar
+Call irb of an object.
+
+    require 'irby'
+
+    "test".irb #=> start irb session
 
 Note
 ------------
