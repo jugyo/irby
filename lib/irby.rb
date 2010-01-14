@@ -3,7 +3,10 @@ require 'irb'
 module IRB
   def self.start_session(binding)
     unless @__irb_initialized
+      args = ARGV.dup
+      ARGV.clear
       IRB.setup(nil)
+      ARGV.replace(args)
       @__irb_initialized = true
     end
 
