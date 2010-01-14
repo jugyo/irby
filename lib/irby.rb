@@ -23,7 +23,7 @@ module IRB
   end
 end
 
-module Kernel
+class Object
   def irb
     IRB.start_session(binding)
   end
