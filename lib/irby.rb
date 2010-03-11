@@ -24,7 +24,7 @@ module IRB
 end
 
 class Object
-  def irb
-    IRB.start_session(binding)
+  def irb(current_binding = nil)
+    IRB.start_session(current_binding || binding)
   end
 end
