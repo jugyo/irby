@@ -27,4 +27,5 @@ class Object
   def irb(current_binding = nil)
     IRB.start_session(current_binding || binding)
   end
+  alias_method :irby, :irb
 end
