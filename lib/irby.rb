@@ -1,12 +1,17 @@
 require 'irb'
 
-$irby_binding_stack = []
+module IRBy
+  def self.binding_stack
+    @binding_stack ||= []
+  end
+end
+
 set_trace_func lambda { |event, file, line, id, binding, klass|
   case event
-  when 'call'
-    $irby_binding_stack << binding
-  when 'return', 'raise'
-    $irby_binding_stack.pop
+  when /call$/
+    IRBy.binding_stack << binding
+  when /return$/
+    IRBy.binding_stack.pop
   end
 }
 
@@ -38,7 +43,7 @@ class Object
     if specific_binding
       target_binding = specific_binding
     else
-      caller_binding = $irby_binding_stack[-2]
+      caller_binding = IRBy.binding_stack[-2]
       if self == caller_binding.eval('self')
         target_binding = caller_binding
       else
